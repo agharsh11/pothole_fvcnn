@@ -17,7 +17,7 @@ from sklearn.datasets import make_classification
 from keras.preprocessing import image
 from keras.applications.vgg16 import preprocess_input
 def dictionary(descriptors, N):
-	em = cv2.EM(N)
+	em = em = cv2.ml.EM_create(N)
 	em.train(descriptors)
 
 	return np.float32(em.getMat("means")), \
